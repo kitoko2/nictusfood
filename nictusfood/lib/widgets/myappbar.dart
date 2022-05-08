@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_const_constructors
 
 import "package:flutter/material.dart";
+import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:nictusfood/constant/colors.dart';
 
@@ -43,18 +44,21 @@ class MyAppBar extends StatelessWidget {
               ),
             ),
           ),
-          Container(
-            child: Icon(
-              Icons.person,
-              color: maincolor,
+          GestureDetector(
+            onTap: () {},
+            child: Container(
+              child: Icon(
+                Icons.person,
+                color: maincolor,
+              ),
+              width: 30,
+              height: 30,
+              decoration: BoxDecoration(
+                color: Colors.white,
+                shape: BoxShape.circle,
+              ),
             ),
-            width: 30,
-            height: 30,
-            decoration: BoxDecoration(
-              color: Colors.white,
-              shape: BoxShape.circle,
-            ),
-          ),
+          )
         ],
       ),
     );

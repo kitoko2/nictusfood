@@ -4,9 +4,12 @@ import "package:flutter/material.dart";
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:location/location.dart';
+import 'package:lottie/lottie.dart';
 import 'package:nictusfood/constant/colors.dart';
 import 'package:nictusfood/models/categorie.dart';
 import 'package:nictusfood/models/customer.dart';
+import 'package:nictusfood/screens/cart.dart';
+import 'package:nictusfood/screens/loading.dart';
 import 'package:nictusfood/screens/otherCategoriPage.dart';
 import 'package:nictusfood/screens/productPage.dart';
 import 'package:nictusfood/services/api_services.dart';
@@ -32,6 +35,7 @@ class _HomeState extends State<Home> {
   LocationData? myLocation;
   String quartier = "";
   String myStreet = "";
+  final GlobalKey<ScaffoldState> _key = GlobalKey();
 
   checkPermission() async {
     serviceEnabled = await location.serviceEnabled();
@@ -108,10 +112,27 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      key: _key,
       resizeToAvoidBottomInset: false,
       backgroundColor: maincolor,
+      floatingActionButton: FloatingActionButton(
+        backgroundColor: Colors.white,
+        onPressed: () {
+          Get.bottomSheet(
+            CartPage(),
+            enableDrag: true,
+            isScrollControlled: true,
+          );
+        },
+        child: Center(
+          child: Image.asset(
+            "assets/appassets/shopping-cart 1.png",
+            width: 30,
+          ),
+        ),
+      ),
       body: load!
-          ? Center()
+          ? Loading()
           : Stack(
               children: [
                 Container(
@@ -137,7 +158,7 @@ class _HomeState extends State<Home> {
                     ),
                   ),
                 ),
-                const MyAppBar()
+                MyAppBar()
               ],
             ),
     );
@@ -152,7 +173,13 @@ class _HomeState extends State<Home> {
             if (categories.keys.toList()[0] == "La carte") {
               Get.to(OtherCategoriePage());
             } else {
-              Get.to(ProductPage());
+              Get.to(
+                () {
+                  return ProductPage(
+                      category: categories.values.toList()[0][0]);
+                },
+                transition: Transition.downToUp,
+              );
             }
           },
           child: Container(
