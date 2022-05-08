@@ -23,13 +23,16 @@ class _OtherCategoriePageState extends State<OtherCategoriePage> {
     return Scaffold(
       resizeToAvoidBottomInset: false,
       backgroundColor: maincolor,
+      drawer: Drawer(),
       body: Stack(
         children: [
           Container(
             margin:
                 EdgeInsets.only(top: MediaQuery.of(context).size.height / 4),
           ),
-          const MyAppBar(),
+          // MyAppBar(
+
+          // ),
         ],
       ),
     );
