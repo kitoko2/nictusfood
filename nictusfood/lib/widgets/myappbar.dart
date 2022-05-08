@@ -3,6 +3,7 @@
 import "package:flutter/material.dart";
 import 'package:google_fonts/google_fonts.dart';
 import 'package:nictusfood/constant/colors.dart';
+import 'package:nictusfood/screens/login.dart';
 
 class MyAppBar extends StatelessWidget {
   const MyAppBar({Key? key}) : super(key: key);
@@ -43,17 +44,22 @@ class MyAppBar extends StatelessWidget {
               ),
             ),
           ),
-          Container(
-            child: Icon(
-              Icons.person,
-              color: maincolor,
+          GestureDetector(
+            child: Container(
+              child: Icon(
+                Icons.person,
+                color: maincolor,
+              ),
+              width: 30,
+              height: 30,
+              decoration: BoxDecoration(
+                color: Colors.white,
+                shape: BoxShape.circle,
+              ),
             ),
-            width: 30,
-            height: 30,
-            decoration: BoxDecoration(
-              color: Colors.white,
-              shape: BoxShape.circle,
-            ),
+            onTap: () {
+              LoginScreen();
+            },
           ),
         ],
       ),

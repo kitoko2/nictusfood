@@ -3,6 +3,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:nictusfood/screens/home.dart';
+import 'package:nictusfood/screens/login.dart';
+import 'package:nictusfood/themes/nictustheme.dart';
 
 void main() {
   // SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
@@ -15,8 +17,10 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final theme = Nictustheme.light();
     return GetMaterialApp(
-      home: Home(),
+      theme: theme,
+      home: LoginScreen(),
       title: "Nictus",
       debugShowCheckedModeBanner: false,
     );
