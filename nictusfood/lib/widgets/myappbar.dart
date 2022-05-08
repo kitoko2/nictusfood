@@ -46,10 +46,6 @@ class MyAppBar extends StatelessWidget {
             ),
           ),
           GestureDetector(
-<<<<<<< HEAD
-=======
-            onTap: () {},
->>>>>>> 676d4918e80c265a595424bc84053e8168a6e27c
             child: Container(
               child: Icon(
                 Icons.person,
@@ -62,14 +58,10 @@ class MyAppBar extends StatelessWidget {
                 shape: BoxShape.circle,
               ),
             ),
-<<<<<<< HEAD
             onTap: () {
               LoginScreen();
             },
           ),
-=======
-          )
->>>>>>> 676d4918e80c265a595424bc84053e8168a6e27c
         ],
       ),
     );
